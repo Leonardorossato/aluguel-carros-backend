@@ -26,6 +26,13 @@ Users.init({
     sequelize,
     tableName: 'users',
     timestamps: true
+}, Itens.associate = (models)=>{
+    Itens.hasMany(models.Rents,{
+        foreignKey: 'rentsId'
+    })
+    Itens.hasMany(models.Cars,{
+        foreignKey: 'carsId'
+    })
 })
 
 module.exports = Users

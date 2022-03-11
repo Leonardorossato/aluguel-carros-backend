@@ -40,6 +40,10 @@ Cars.init({
     sequelize,
     tableName: 'cars',
     timestamps: true
+}, Cars.associate = (models)=>{
+    Cars.hasMany(models.Brands, {
+        foreignKey: 'brandsId'
+    })
 })
 
 module.exports = Cars
