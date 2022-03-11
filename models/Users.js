@@ -32,7 +32,7 @@ Users.init({
     timestamps: true
 }, Users.associate = (models)=>{
     Users.hasMany(models.Rents, {
-        foreignKey: 'rentId'
+        foreignKey: 'rentsId'
     })
 })
 
