@@ -18,10 +18,13 @@ Users.init({
         type: DataTypes.STRING,
         allowNull: false,
     },
-    isAdmin: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: 'false'
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
     }
 }, {
     sequelize,
