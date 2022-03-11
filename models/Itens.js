@@ -1,16 +1,31 @@
-const mongoose = require('mongoose');
+const sequelize = require('../connection/sqliteConnection')
+const {Model, DataTypes} = require('sequelize')
 
-const itensSchema = new mongoose.Schema({
-    _id: {type: mongoose.Types.ObjectId},
-    kmInitial: {type: Number, required: true},
-    kmFinal: {type: Number, required: true},
-    value: {type:Number, required: true},
-    clientId: {type: mongoose.Schema.Types.ObjectId, ref: 'clients'},
-    carrosId: {type: mongoose.Schema.Types.ObjectId, ref: 'carros'},
-    aluguelId: {type: mongoose.Schema.Types.ObjectId, ref: 'alugueis'},
-    marcasId: {type: mongoose.Schema.Types.ObjectId, ref: 'marcas'},
+class Users extends Model {}
+
+Users.init({
+    id : {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        allowNull: false,
+        autoIncrement: true
+    },
+    km_initial: {
+        type: DataTypes.NUMBER,
+        allowNull: false
+    },
+    km_final: {
+        type: DataTypes.NUMBER,
+        allowNull: false,
+    },
+    value_Km: {
+        type: DataTypes.NUMBER,
+        allowNull: false
+    }
+}, {
+    sequelize,
+    tableName: 'users',
+    timestamps: true
 })
 
-const Itens = mongoose.model('itens', itensSchema)
-
-module.exports = Itens
+module.exports = Users
