@@ -30,12 +30,8 @@ Attendant.init({
     ctps:{
         type: DataTypes.NUMBER,
         allowNull: false
-    },
-    isAdmin: {
-        type: DataTypes.BOOLEAN,
-        allowNull: false,
-        defaultValue: true
     }
+
 }, {
     sequelize,
     tableName: 'attendants',
