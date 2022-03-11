@@ -40,12 +40,5 @@ Attendant.init({
     sequelize,
     tableName: 'attendants',
     timestamps: true
-},Attendant.associate = (models) =>{
-    Attendant.hasMany(models.Users, {
-        foreignKey: 'usersId',
-    })
-    Attendant.hasMany(models.Rents, {
-        foreignKey: 'rentsId',
-    })
 })
 module.exports = Attendant

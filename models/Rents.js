@@ -30,6 +30,13 @@ Rents.init({
     sequelize,
     tableName: 'rents',
     timestamps: true
-})
+}, Rents.associate = (models=>{
+    Rents.hasMany(models.Users, {
+        foreignKey: 'usersid',
+    })
+    Rents.hasMany(models.Attendant, {
+        foreignKey: 'attendantsid',
+    })
+}))
 
 module.exports = Rents
